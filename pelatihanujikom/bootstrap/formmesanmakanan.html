@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Form Pemesanan Makanan</title>
+	<!-- CSS BOOTSTRAP -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="container">
+		<div class="card shadow rounded mt-5 p-5">
+			<h3>Form Pemesanan Makanan</h3>
+			<table class="table">
+                <thead>
+                    <tr>
+                        <th>Nama makanan</th>
+                        <th>Harga</th>
+                        <th>Jumlah</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nasi Goreng</td>
+                        <td>Rp.10.000</td>
+                        <td><input type="number" class="form-control" id="nasiGoreng" value="0" required></td>
+                    </tr>
+                    <tr>
+                        <td>Ayam Goreng</td>
+                        <td>Rp.12.000</td>
+                        <td><input type="number" class="form-control" id="ayamGoreng" value="0" required></td>
+                    </tr>
+                    <tr>
+                        <td>Es Teh</td>
+                        <td>Rp.2.000</td>
+                        <td><input type="number" class="form-control" id="esTeh" value="0" required></td>
+                    </tr>
+                    <tr>
+                        <td>Kopi</td>
+                        <td>Rp.3.000</td>
+                        <td><input type="number" class="form-control" id="kopi" value="0" required></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="btn btn-success" id="hitungTotalBtn">Hitung Total</div>
+
+			<div class="mt-4">
+				<h5>Total Pesanan:</h5>
+				<p id="hasil"></p>
+			</div>
+		</div>
+	</div>
+
+	<!-- FILES JS -->
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<script>
+		document.getElementById('hitungTotalBtn').addEventListener('click', function() {
+			// Harga per item
+			var hargaNasiGoreng = 10000;
+			var hargaAyamGoreng = 12000;
+			var hargaEsTeh = 2000;
+			var hargaKopi = 3000;
+
+			// Mengambil jumlah yang dimasukkan untuk masing-masing item
+			var jumlahNasiGoreng = parseInt(document.getElementById('nasiGoreng').value) || 0;
+			var jumlahAyamGoreng = parseInt(document.getElementById('ayamGoreng').value) || 0;
+			var jumlahEsTeh = parseInt(document.getElementById('esTeh').value) || 0;
+			var jumlahKopi = parseInt(document.getElementById('kopi').value) || 0;
+
+			// Menghitung total harga
+			var total = (hargaNasiGoreng * jumlahNasiGoreng) +
+						(hargaAyamGoreng * jumlahAyamGoreng) +
+						(hargaEsTeh * jumlahEsTeh) +
+						(hargaKopi * jumlahKopi);
+
+			// Menampilkan hasil total
+			document.getElementById('hasil').innerHTML = `Total Pesanan: Rp${total.toLocaleString()}`;
+		});
+	</script>
+</body>
+</html>

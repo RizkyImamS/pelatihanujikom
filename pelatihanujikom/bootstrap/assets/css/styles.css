@@ -1,0 +1,56 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Navbar */
+.navbar {
+    margin-bottom: 20px;
+}
+
+.nav-link.active {
+    color: red !important;
+}
+
+/* Tabel */
+.table-custom {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Tombol Kustom */
+.btn-custom {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-custom:hover {
+    background-color: #218838;
+}
+
+/* Form */
+.form-custom {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal */
+.modal-custom .modal-content {
+    border-radius: 10px;
+}
+
+/* Footer */
+footer {
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsive Image */
+.img-fluid {
+    max-height: 300px;
+    object-fit: cover;
+}

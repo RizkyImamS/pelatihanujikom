@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Hitung Diskon Belanjaan</title>
+	<!-- CSS BOOTSTRAP -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="container">
+		<div class="card shadow rounded mt-5 p-5">
+			<h3>Hitung Diskon Belanjaan</h3>
+			<form id="diskonForm" class="form-custom">
+				<div class="mb-3">
+					<label for="harga" class="form-label">Harga Barang</label>
+					<input type="number" class="form-control" id="harga" placeholder="Masukkan harga barang" required>
+				</div>
+				<button type="submit" class="btn btn-primary">Hitung Diskon</button>
+				<button type="reset" class="btn btn-warning">Batal</button>
+			</form>
+
+			<div class="mt-4">
+				<h5>Hasil:</h5>
+				<p id="hasil"></p>
+			</div>
+		</div>
+	</div>
+
+	<!-- FILES JS -->
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<script>
+		document.getElementById('diskonForm').addEventListener('submit', function(event) {
+			event.preventDefault();
+
+			// Mendapatkan input nilai harga
+			var harga = parseFloat(document.getElementById('harga').value);
+
+			// Validasi input
+			if (isNaN(harga)) {
+				alert("Masukkan nilai yang valid!");
+				return;
+			}
+
+			// Menentukan persentase diskon otomatis
+			var diskon = 0;
+
+			if (harga >= 100000) {
+				diskon = 10;
+			} else if (harga >= 50000) {
+				diskon = 5;
+			}
+
+			// Menghitung diskon dan harga setelah diskon
+			var totalDiskon = harga * (diskon / 100);
+			var hargaSetelahDiskon = harga - totalDiskon;
+
+			// Menampilkan hasil
+			document.getElementById('hasil').innerHTML = 
+				`Harga Awal: Rp${harga.toFixed(2)}<br>
+				Potongan Diskon: Rp${totalDiskon.toFixed(2)}<br>
+				Harga Setelah Diskon: Rp${hargaSetelahDiskon.toFixed(2)}<br>
+				Persentase Diskon: ${diskon}%`;
+		});
+	</script>
+</body>
+</html>
